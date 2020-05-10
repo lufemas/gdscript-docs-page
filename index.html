@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - FCC: Technical Documentation Page-GDScript</title>
+  <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav id="navbar">
+  <header>
+    <h1>GDScript Documentation</h1>      
+  </header>
+  <section>
+    <input type="checkbox" id="checkbox-toggle-left" class="checkbox-toggle">
+    <span class="droparrow" id="droparrow-left"><span></span></span>
+    <ul class="nav-list">
+      <li><a class="nav-link" href="#introduction">Introduction</a></li>
+      <li><a class="nav-link" href="#variables">Variables</a></li> 
+        <ul class="sub-nav-list">
+          <li><a class="sub-nav-link" href="#variants">Variants</a></li>
+          <li><a class="sub-nav-link" href="#typed-variables">Typed Variables</a></li>
+          <li><a class="sub-nav-link" href="#variable-scope">Variable scope</a></li>
+        </ul>
+      <li><a class="nav-link" href="#operators">Operators</a></li>
+      <ul class="sub-nav-list">
+        <li><a class="sub-nav-link" href="#boolean-operators">Boolean Operators</a></li>
+        <li><a class="sub-nav-link" href="#bitwise-operators">Bitwise Operators</a></li>
+      </ul>
+      <li><a class="nav-link" href="#functions">Functions</a></li>
+      <li><a class="nav-link" href="#conditional_statements">Conditional Statements</a></li>
+      <ul class="sub-nav-list">
+        <li><a class="sub-nav-link" href="#if-else-elif">if/else/elif</a></li>
+        <li><a class="sub-nav-link" href="#while">while</a></li>
+        <li><a class="sub-nav-link" href="#for">for</a></li>
+        <li><a class="sub-nav-link" href="#match">match</a></li>
+       </ul>
+  
+      <li><a class="nav-link" href="#Reference">Reference</a></li>
+    </ul>
+  </section>
+</nav>
+<main id="main-doc">
+  <section class="main-section" id="introduction">
+    <header>Introduction</header>
+    <article>
+      <p>
+        <em>GDScript</em> is a high-level, dynamically typed programming language used to
+        create content. It uses a syntax similar to
+        <a class="reference external" target="_blank" href="https://en.wikipedia.org/wiki/Python_%28programming_language%29">Python</a>
+        (blocks are indent-based and many keywords are similar). Its goal is
+        to be optimized for and tightly integrated with Godot Engine, allowing great
+        flexibility for content creation and integration.
+      </p>
+
+      <section class="sub-section" id="summary">
+        <header>Summary</header>
+        <ul class="main-doc-list">
+          <li><a class="main-doc-list-link" href="#variables">Variables</a>
+      
+            <ul class="main-doc-nav-list">
+              <li><a class="main-doc-list-link" href="#variants">Variants</a></li>
+              <li><a class="main-doc-list-link" href="#typed-variables">Typed Variables</a></li>
+              <li><a class="main-doc-list-link" href="#variable-scope">Variable scope</a></li>
+            </ul>
+          </li> 
+          <li><a class="main-doc-list-link" href="#operators">Operators</a></li>
+          <ul class="main-doc-nav-list">
+            <li><a class="main-doc-list-link" href="#boolean-operators">Boolean Operators</a></li>
+            <li><a class="main-doc-list-link" href="#bitwise-operators">Bitwise Operators</a></li>
+          </ul>
+          <li><a class="main-doc-list-link" href="#functions">Functions</a></li>
+          <li><a class="main-doc-list-link" href="#conditional_statements">Conditional Statements</a></li>
+          <ul class="main-doc-nav-list">
+            <li><a class="main-doc-list-link" href="#if-else-elif">if/else/elif</a></li>
+            <li><a class="main-doc-list-link" href="#while">while</a></li>
+            <li><a class="main-doc-list-link" href="#for">for</a></li>
+            <li><a class="main-doc-list-link" href="#match">match</a></li>
+          </ul>
+      
+          <li><a class="main-doc-list-link" href="#Reference">Reference</a></li>
+        </ul>
+      </section>
+    </article>
+  </section>
+  <section class="main-section" id="variables">
+    <header>Variables</header>
+    <article>
+      <p>
+          In all programming languages, variables are used to store values and references. Examples are: the current score value or a reference to an item of inventory.
+      </p>
+      <p>
+          It is good practice to give variables descriptive names in lower-case text, and join words with underscores. Here are some examples of variable declarations:
+      </p>
+      <code>
+var score = 0
+var remaining_fuel = 99.9
+var paused = false
+var player_name = ""
+var selected_weapon
+var starting_grid_position
+      </code>
+
+      <p>Notice how some variables don't have their value set yet, and we can assign different types of values to the variables.</p>
+      <p>Some basic types are as follows:</p>
+      <table>
+          <tr>
+            <th>Type</th>
+            <th>Details</th>
+            <th>Examples</th>
+          </tr>
+          <tr>
+            <td>int</td>
+            <td>A 64bit signed number </td>
+            <td>-12 54 0xAF </td>
+          </tr>
+          <tr>
+            <td>float</td>
+            <td>Floating point number </td>
+            <td>1.23 1e6 </td>
+          </tr>
+          <tr>
+            <td>bool</td>
+            <td>True or false</td>
+            <td>true false</td>
+          </tr>
+          <tr>
+            <td>String</td>
+            <td>For words and character sequences</td>
+            <td>"Hello World"</td>
+          </tr>
+        </table> 
+      <article>
+  
+    <section class="sub-section" id="variants">
+      <header>Variants</header>
+      <article>
+        <p>
+          In our first example, the variables can take any type of value, and the value may be changed later to another type of value. This kind of variable is called a Variant
+        </p>
+        <p>
+          So it is easy and quick to code our variable declarations in this way.
+        </p>
+
+      </article>
+    </section>
+    <section class="sub-section" id="typed-variables">
+      <header>Typed Variables</header>
+      <article>
+        <p>
+          There is a way to declare what type of value a variable will accept. This has advantages to reduce bugs, and get help and warnings from the editor as you enter code.
+        </p>
+
+        <p>
+          There are two ways to declare typed variables as follows:
+        </p>
+        <code>
+# Method 1
+var score: int = 0
+var remaining_fuel: float = 99.9
+var paused: bool = false
+var player_name: String = ""
+
+# Method 2 (inferring the type)
+var my_int := 8
+var size := 32.6
+var running := true
+var name := ""
+        </code>
+        <p>
+          We call this static typing, and when using variants as before, we call that dynamic typing. Both can be used as you like within your program.
+        </p>
+      </article>
+    </section>
+    <section class="sub-section" id="variable-scope">
+      <header>Variable scope</header>
+      <article>
+        <p>
+          Scope is the area of the program code where the variable is accessible. Text indentation levels are used to define scope in the editor, and the various regions may be expanded and collapsed.
+        </p>
+
+        <p>
+          Global scope is where the variable is available everywhere such as when it is declared in an Autoload file. And local scope is the area within a function containing the variable after it's declaration.
+        </p>
+          It is good practice to keep the scope of a variable as small as possible to reduce bugs and make self-contained chunks of functionality that don't depend on external variables.
+        <p>
+          Here is an example of global and local scope:
+        </p>
+
+        <code>
+extends Node2D
+
+# score has global scope in this code module
+var score = 5
+
+# A function that may be called to add points to score
+func add_to_score(points):
+    # points is a variable passed from outside
+    # it has local scope in this indented code block
+    score = score + points
+
+# This function runs when we view the scene
+func _ready():
+    add_to_score(1)
+    # score is accessible inside this code block
+    print(score) # prints 6
+        </code>
+
+        <p>Bugs can creep in if you rely on global scope and mistakenly re-declare a variable with the same name in local scope. As in this example:</p>
+        <code>
+extends Node2D
+
+var score = 5
+var new_score
+
+func add_to_score(points):
+    # new_score is accidentally re-declared
+    # with local scope in this indented code block
+    var new_score = score + points
+
+func _ready():
+    add_to_score(1)
+    # new_score has not been set
+    print(new_score) # prints null
+          </code>
+          <p>For an exercise, practice declaring both static and dynamic types of variables. Print out the values, and experiment with scope to solidify your understanding of the concepts.</p>
+      </article>
+    </section>
+  </section>
+
+
+  <section class="main-section" id="operators">
+    <header>Operators</header>
+    <article>
+      <p>These are mostly used in calculations, comparisons, and operations on binary bits.</p>
+        
+      <p>They are evaluated in order of importance (precedence).</p>
+
+      <p>For example, in a calculation: times (x) takes precedence over plus (+) so 2 + 3 x 2 equals 8 rather than 10. A good calculator should obey this precedence rule. For an exercise: check it on your smartphone calculator app.</p>
+
+      <p>The following tables list operators with the highest precedence first.</p>
+        
+      <table>
+        <tr>
+          <th>Operator</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>-x</td>
+          <td>Negation </td>
+        </tr>
+        <tr>
+          <td>* / % </td>
+          <td>Times / Divide / Remainder </td>
+        </tr>
+        <tr>
+          <td>+</td>
+          <td>Add</td>
+        </tr>
+        <tr>
+          <td>-</td>
+          <td>Subtract</td>
+        </tr>
+      </table> 
+
+      <p>The remainder is applied to integers and works like this: 5 % 2 equals 1 because 5 divided by 2 equals 2 remainder 1.</p>
+
+      <p>One good use for this operator (otherwise known as the modulo operator) is to limit the range of a counter value. If the divisor is n, then the counter will count between 0 and n - 1, rolling back to zero on each multiple of n. Look forward to a code example using this concept later in the tutorial series.</p>
+
+      <p>Some assignment shortcuts are available as follows (these have the lowest precedence over anything - as you might assume given that they are accepting the result of a prior evaluation):</p>
+
+      <table>
+        <tr>
+          <th>Example</th>
+          <th>Equivalent Operation </th>
+        </tr>
+        <tr>
+          <td>x += 1</td>
+          <td>x = x + 1 </td>
+        </tr>
+        <tr>
+          <td>x -= 1</td>
+          <td>x = x - 1 </td>
+        </tr>
+        <tr>
+          <td>x *= 2</td>
+          <td>x = x * 2 </td>
+        </tr>
+        <tr>
+          <td>x /= 2</td>
+          <td>x = x / 2</td>
+        </tr>
+        <tr>
+          <td>x %= 3</td>
+          <td>x = x % 3</td>
+        </tr>
+      </table> 
+
+    </article>
+    <section class="sub-section" id="boolean-operators">
+      <header>Boolean Operators</header>
+      <article>
+        <p>These are the comparison, and logical operators that are mainly used in if statements.</p>
+
+        <table>
+          <tr>
+            <th>Operators</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>< == > != >= <=</td>
+            <td>Comparison operators</td>
+          </tr>
+          <tr>
+            <td>! not</td>
+            <td>NOT</td>
+          </tr>
+          <tr>
+            <td>&& and</td>
+            <td>AND</td>
+          </tr>
+          <tr>
+            <td>|| or</td>
+            <td>OR</td>
+          </tr>
+        </table> 
+
+        <p>A common typo error is to enter just one equals sign meaning assign rather than compare, but the editor will detect this and signal a warning to you.</p>
+        <p>The result of a boolean operation is true or false.</p>
+
+        <p>Example:</p>
+        <code>x = 3 > 4 or 5 < 6 # x == true</code>
+      
+      </article>
+    </section>
+
+    <section class="sub-section" id="bitwise-operators">
+      <header>Bitwise Operators</header>
+      <article>
+        <p>Note:<em> bitwise operators are not likely to be used very often unless you are doing something quite technical involving bit manipulation.</em></p>
+      
+          <p>Every number or character is comprised of binary bits so we are able to flip bits, shift bits, mask bits etc. Individual bits are zeros and ones. They are set or reset according to logical operations related to how digital logic gates operate.</p>
+
+          <p>The first bit is called the LSB (Least Significant Bit) and the last bit is called the MSB (Most Significant Bit). Numbers constructed from zero/one bits are binary numbers.</p>
+
+          <p>Counting in binary goes like this: 0 1 10 11 100 101 110 111 1000 ...</p>
+
+          <p>However, in the editor, we only see decimal equivalent numbers. So you will need to imagine the binary equivalent of 8 is 1000.</p>
+
+          <p>For an exercise: use the programmer's calculator in Windows (or the equivalent app in your OS) to get used to fooling around with binary numbers.</p>
+
+          <table>
+              <tr>
+                <th>Operators</th>
+                <th>Description</th>
+              </tr>
+              <tr>
+                <td>~</td>
+                <td>NOT (inverts the bits)</td>
+              </tr>
+              <tr>
+                <td><< >></td>
+                <td>Shift bits of left-side operand left or right by n positions (1 << 2 == 4)</td>
+              </tr>
+              <tr>
+                <td>&</td>
+                <td>Logical AND of two values</td>
+              </tr>
+              <tr>
+                <td>^</td>
+                <td>Logical XOR of two values</td>
+              </tr>
+              <tr>
+                <td>|</td>
+                <td>Logical OR of two values</td>
+              </tr>
+              <tr>
+                <td>^</td>
+                <td>Logical XOR of two values</td>
+              </tr>
+            </table> 
+
+
+      </article>
+    </section>
+  </section>
+
+
+  <section class="main-section" id="functions">
+    <header>Functions</header>
+    <article>
+      <p>Functions are a way to group together sections of code that perform related actions. They help us to write more readable code and avoid repeating the same code in multiple places.</p>
+
+      <p>A square root function may be familiar. It has an input and returns an output. Functions may have zero or multiple inputs, and optionally return a result.</p>
+
+      <p>Functions always belong to a Class which is a container for related functions. So when you extend a Node in Godot, you are creating a Class containing your functions and variables.</p>
+
+      <p>Your extended class will also inherit the functions and properties of the class that it extends. Properties are member variables that are declared in the top-most scope of the class.</p>
+    
+      <p>Inputs to functions are called arguments. There may be no arguments, a list of arguments, type specified arguments, and arguments with default values.</p>
+
+      <p>The return keyword is used to return at any point. This means exiting the function with a value or not (returns a null value) to the point in the program code just after where the function was called from.</p>
+
+      <p>If the return keyword is not used, then the code will run to the end of the function and return a null value.</p>
+        
+      <p>The return value doesn't have to be used, just call the function without capturing it's return value. But this may generate a warning in the error window if the value is not null to alert you to a potential bug in your code logic.</p>
+        
+      <p>Also, the return type may be specified to add extra bug resistance.</p>
+        
+      <p>Here are examples of ways to define functions in a working example script:</p>
+
+      <code>
+extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+  add(5, 6) # Prints 11 to Output window
+  var sum = get_sum(2, 4) # Sets sum to 6
+  var my_int = add_ints(sum, 4) # Sets my_int to 10
+  my_int = times_2(my_int) # sets my_int to 20
+  move_x(self, my_int) # Move this node 20 pixels along x axis
+  move_x(self) # Move by the default value
+
+# This function has no return value
+func add(a, b):
+  print(a + b)
+
+# This function returns a value
+func get_sum(a, b):
+  return a + b
+
+# This function will only accept integer arguments
+func add_ints(a: int, b: int):
+  return a + b
+
+# Generate an error if the return value is not an int
+func times_2(n) -> int:
+  return 2 * n
+
+# This function modifies an object that is passed by reference
+func move_x(node: Node2D, dx = 1.5):
+  node.position.x += dx
+      </code>
+
+      <p>In the above code you can see that the node's property is altered without returning the node value. This works because the node value is a reference number to an object, and the object is said to be passed by reference. Contrast this to a simple number that is passed by value where it has local scope to the function and needs to be returned to make use of the new value.</p>
+
+    </article>
+  </section>
+
+  <section class="main-section" id="conditional_statements">
+    <header>Conditional Statements</header>
+    <article>
+      <p>Statements are standard and can be assignments, function calls, control flow structures, etc</p>
+
+     </article>
+
+     <section class="sub-section" id="if-else-elif">
+       <header>if/else/elif</header>
+       <article>
+         <p>Simple conditions are created by using the if/else/elif syntax. Parenthesis around conditions are allowed, but not required. Given the nature of the tab-based indentation, elif can be used instead of else/if to maintain a level of indentation.</p>  
+         <code>
+if [expression]:
+    statement(s)
+elif [expression]:
+    statement(s)
+else:
+    statement(s)
+         </code>
+   
+         <p>Short statements can be written on the same line as the condition:</p>
+   
+         <code>
+if 1 + 1 == 2: return 2 + 2
+else:
+    var x = 3 + 3
+    return x
+         </code>
+         <p>Sometimes, you might want to assign a different initial value based on a boolean expression. In this case, ternary-if expressions come in handy:</p>
+         <code>
+var x = [value] if [expression] else [value]
+y += 3 if y < 10 else -1
+         </code>
+       </article>
+     </section>
+   
+     <section class="sub-section" id="while">
+       <header>while</header>
+       <article>
+         <p>Simple loops are created by using while syntax. Loops can be broken using break or continued using continue:</p>  
+         <code>
+while [expression]:
+    statement(s)
+         </code>
+       </article>
+     </section>
+   
+     <section class="sub-section" id="for">
+       <header>for</header>
+       <article>
+         <p>To iterate through a range, such as an array or table, a for loop is used. When iterating over an array, the current array element is stored in the loop variable. When iterating over a dictionary, the index is stored in the loop variable.</p>  
+         <code>
+for x in [5, 7, 11]:
+    statement # Loop iterates 3 times with 'x' as 5, then 7 and finally 11.
+
+var dict = {"a": 0, "b": 1, "c": 2}
+for i in dict:
+    print(dict[i]) # Prints 0, then 1, then 2.
+
+for i in range(3):
+    statement # Similar to [0, 1, 2] but does not allocate an array.
+
+for i in range(1, 3):
+    statement # Similar to [1, 2] but does not allocate an array.
+
+for i in range(2, 8, 2):
+    statement # Similar to [2, 4, 6] but does not allocate an array.
+
+for c in "Hello":
+    print(c) # Iterate through all characters in a String, print every letter on new line.
+
+for i in 3:
+    statement # Similar to range(3)
+
+for i in 2.2:
+    statement # Similar to range(ceil(2.2))
+         </code>
+       </article>
+      </section>
+   
+     <section class="sub-section" id="match">
+       <header>match</header>
+       <article>
+         <p>A match statement is used to branch execution of a program. It’s the equivalent of the switch statement found in many other languages, but offers some additional features.</p> 
+         <code>
+match [expression]:
+    [pattern](s):
+        [block]
+    [pattern](s):
+        [block]
+    [pattern](s):
+        [block]
+         </code> 
+       </article>
+     </section>
+  </section>
+
+<!-- 
+  <section class="main-section" id="subtitle">
+    <header>subtitle</header>
+    <article>
+      <p></p>  
+    </article>
+  </section> -->
+
+
+  <section class="main-section" id="Reference">
+    <header>Reference</header>
+    <article>
+      <ul>
+        <li>
+          All the documentation in this page is taken from
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+            target="_blank"
+            >MDN</a
+          >
+        </li>
+      </ul>
+    </article>
+  </section>
+</main>
+<!-- partial -->
+  <script src='https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
